@@ -1,4 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const colorPickerContainer = document.getElementById('color-picker');
+    colorPickerContainer.innerHTML = `
+        <div class="color-picker-container">
+            <div class="color-preview"></div>
+            <div class="color-controls">
+                <div class="color-values">
+                    <div class="value-input">
+                        <label for="r">R:</label>
+                        <input type="number" id="r" min="0" max="255">
+                    </div>
+                    <div class="value-input">
+                        <label for="g">G:</label>
+                        <input type="number" id="g" min="0" max="255">
+                    </div>
+                    <div class="value-input">
+                        <label for="b">B:</label>
+                        <input type="number" id="b" min="0" max="255">
+                    </div>
+                    <div class="value-input">
+                        <label for="h">H:</label>
+                        <input type="number" id="h" min="0" max="360">
+                    </div>
+                    <div class="value-input">
+                        <label for="s">S:</label>
+                        <input type="number" id="s" min="0" max="100">
+                    </div>
+                    <div class="value-input">
+                        <label for="v">V:</label>
+                        <input type="number" id="v" min="0" max="100">
+                    </div>
+                    <div class="value-input">
+                        <label for="hex">#:</label>
+                        <input type="text" id="hex">
+                    </div>
+                </div>
+                <input type="color" id="colorPicker">
+            </div>
+        </div>
+    `;
+
     const colorPicker = document.getElementById('colorPicker');
     const colorPreview = document.querySelector('.color-preview');
     const rgbInputs = {
@@ -144,3 +184,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hexInput.addEventListener('input', () => {
         const color = hexInput.value;
+        const { r, g, b } = hexToRgb(color);
+        rgbInputs.r.value = r;
+        rgbInputs.g.value = g;
+        rgbInputs.b.value = b;
+
+        const { h, s, v } = rgbToHsv(r, g, b);
+        hsvInputs.h.value = h;
+        hsvInputs.s.value = s;
+        hsvInputs.v.value = v;
+
+        colorPicker.value = color;
+        updateColorPreview(color);
+    });
+});
