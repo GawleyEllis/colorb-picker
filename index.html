@@ -4,45 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Color Picker</title>
-     <link rel="stylesheet" href="https://Lateoffset.github.io/Breadcrumbscolorb-picker/stylesheet.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="color-picker-container">
-        <div class="color-preview"></div>
-        <div class="color-controls">
-            <div class="color-values">
-                <div class="value-input">
-                    <label for="r">R:</label>
-                    <input type="number" id="r" min="0" max="255">
-                </div>
-                <div class="value-input">
-                    <label for="g">G:</label>
-                    <input type="number" id="g" min="0" max="255">
-                </div>
-                <div class="value-input">
-                    <label for="b">B:</label>
-                    <input type="number" id="b" min="0" max="255">
-                </div>
-                <div class="value-input">
-                    <label for="h">H:</label>
-                    <input type="number" id="h" min="0" max="360">
-                </div>
-                <div class="value-input">
-                    <label for="s">S:</label>
-                    <input type="number" id="s" min="0" max="100">
-                </div>
-                <div class="value-input">
-                    <label for="v">V:</label>
-                    <input type="number" id="v" min="0" max="100">
-                </div>
-                <div class="value-input">
-                    <label for="hex">#:</label>
-                    <input type="text" id="hex">
-                </div>
-            </div>
-            <input type="color" id="colorPicker">
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <div id="color-picker"></div>
+    <script src="color-picker.js" type="module"></script>
 </body>
 </html>
+
+
